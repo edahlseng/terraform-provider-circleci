@@ -1,0 +1,7 @@
+.terraform
+terraform.log
+terraform.tfstate*
+terraform-provider-circleci
+*.tf
+dist
+node_modules

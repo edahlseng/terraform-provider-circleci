@@ -1,0 +1,20 @@
+{
+  "name": "terraform-provider-circleci",
+  "version": "0.1.0",
+  "description": "CircleCI Terraform Provider",
+  "scripts": {
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Dahlseng",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@eric.dahlseng/standard-version": "^1.0.3"
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true
+    }
+  }
+}
