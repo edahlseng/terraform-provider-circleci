@@ -9,6 +9,7 @@ import (
 type Client struct {
 	sling    *sling.Sling
 	Projects *ProjectService
+	SshKeys  *SshKeyService
 }
 
 func NewClient(authToken string) *Client {
@@ -20,5 +21,6 @@ func NewClient(authToken string) *Client {
 	return &Client{
 		sling:    base,
 		Projects: newProjectService(base, authToken),
+		SshKeys:  newSshKeyService(base, authToken),
 	}
 }

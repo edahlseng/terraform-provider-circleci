@@ -1,8 +1,8 @@
 package circleci
 
 import (
-	circleci "./circleci-go"
 	"fmt"
+	circleci "github.com/edahlseng/terraform-provider-circleci/circleci/circleci-go"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
