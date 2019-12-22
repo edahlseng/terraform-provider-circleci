@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@eric.dahlseng/standard-version": "^1.0.3"
+    "@eric.dahlseng/standard-version": "^1.1.0"
   },
   "standard-version": {
     "skip": {
