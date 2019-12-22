@@ -13,6 +13,39 @@ provider "circleci" {
 Resources
 ---------
 
+### circleci_environment_variable
+
+For reference, see [CircleCI's documentation on Using Environment Variables](https://circleci.com/docs/2.0/env-vars/).
+
+#### Example Usage:
+
+```hcl
+resource "circleci_environment_variable" "example_environment_variable" {
+  project_id  = "${circleci_project.example.id}"
+  name        = "MyVariable"
+  value       = "${var.environment_variable_value}"
+}
+```
+
+#### Argument Reference:
+
+The following arguments are supported:
+
+* project_id (Required) - The ID of the project (in `<vcs_type>/<username>/<name>` format).
+* name (Required) - The name of the environment variable.
+* value (Required) - The value of the environment variable.
+
+#### Attributes Reference
+
+In addition to all arguments above, the following attributes are exported:
+
+* id - A string with the format `<vcs_type>/<username>/<project_name>/<environment_variable_name>`.
+* value_masked - A string with four `x` characters plus the last four ASCII characters of the environment variable's value, consistent with the display of environment variable values in the CircleCI website.
+
+#### Import
+
+The `circleci_environment_variable` resource does not support importing.
+
 ### circleci_project
 
 For reference, see [CircleCI's Projects and Builds Documentation](https://circleci.com/docs/2.0/project-build/).
