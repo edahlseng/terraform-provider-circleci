@@ -4,9 +4,20 @@ CircleCI Terraform Provider
 Setup
 -----
 
+Using the latest version of the plugin
+
 ```hcl
 provider "circleci" {
-  token = "<CircleCI Token>" // Will fallback to CIRCLECI_TOKEN environment variable if not explicitly specified
+  token   = "<CircleCI Token>" # Will fallback to CIRCLECI_TOKEN environment variable if not explicitly specified
+}
+```
+
+Or for a different version of the plugin, you can specify it through
+
+```hcl
+provider "circleci" {
+  # considering the CIRCLECI_TOKEN environment variable
+  version = "~>0.3.0"
 }
 ```
 
@@ -121,8 +132,16 @@ In addition to all arguments above, the following attributes are exported:
 
 The `circleci_ssh_key` resource does not support importing.
 
-Building The Provider
----------------------
+Installation
+------------
+
+To build the provider and then install it to the plugins folder, run
+
+```shell
+make install
+```
+
+Otherwise, the binary can be built using
 
 ```shell
 make build

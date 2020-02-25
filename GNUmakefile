@@ -1,5 +1,7 @@
 TEST?=$$(go list ./... |grep -v 'vendor')
 GOFMT_FILES?=$$(find . -name '*.go' |grep -v vendor)
+VERSION?=0.3.0
+TF_PLUGINS_DIR?=$(HOME)/.terraform.d/plugins/$$(go env GOOS)_$$(go env GOARCH)
 TARGETS=darwin linux windows
 WEBSITE_REPO=github.com/hashicorp/terraform-website
 PKG_NAME=circleci
@@ -7,7 +9,11 @@ PKG_NAME=circleci
 default: build
 
 build: fmtcheck
-	go build -o terraform-provider-circleci main.go
+	go build -o terraform-provider-circleci_v$(VERSION) main.go
+
+install: build
+	mkdir -p $(TF_PLUGINS_DIR)
+	mv terraform-provider-circleci_v$(VERSION) $(TF_PLUGINS_DIR)
 
 targets: $(TARGETS)
 
