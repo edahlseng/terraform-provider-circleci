@@ -13,11 +13,11 @@ type Client struct {
 	EnvironmentVariables *EnvironmentVariableService
 }
 
-func NewClient(authToken string) *Client {
+func NewClient(authToken, baseURL string) *Client {
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
-	base := sling.New().Client(client).Base("https://circleci.com/api/v1.1/").Set("Content-Type", "application/json")
+	base := sling.New().Client(client).Base(baseURL).Set("Content-Type", "application/json")
 
 	return &Client{
 		sling:                base,
