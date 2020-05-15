@@ -3,7 +3,7 @@ package circleci
 import (
 	"fmt"
 	circleci "github.com/edahlseng/terraform-provider-circleci/circleci/circleci-go"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 func resourceCircleCiProject() *schema.Resource {
